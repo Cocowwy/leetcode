@@ -13,37 +13,36 @@ import java.util.concurrent.Semaphore;
  * @create 2022-02-02-10:20
  */
 public class T1115 {
+    class FooBar {
+        private int n;
+        private Semaphore foo = new Semaphore(1);
+        private Semaphore bar = new Semaphore(0);
 
-}
+        public FooBar(int n) {
+            this.n = n;
+        }
 
-class FooBar {
-    private int n;
-    private Semaphore foo = new Semaphore(1);
-    private Semaphore bar = new Semaphore(0);
+        public void foo(Runnable printFoo) throws InterruptedException {
 
-    public FooBar(int n) {
-        this.n = n;
-    }
+            for (int i = 0; i < n; i++) {
 
-    public void foo(Runnable printFoo) throws InterruptedException {
+                // printFoo.run() outputs "foo". Do not change or remove this line.
+                foo.acquire();
+                printFoo.run();
+                bar.release();
+            }
+        }
 
-        for (int i = 0; i < n; i++) {
+        public void bar(Runnable printBar) throws InterruptedException {
 
-            // printFoo.run() outputs "foo". Do not change or remove this line.
-            foo.acquire();
-            printFoo.run();
-            bar.release();
+            for (int i = 0; i < n; i++) {
+
+                // printBar.run() outputs "bar". Do not change or remove this line.
+                bar.acquire();
+                printBar.run();
+                foo.release();
+            }
         }
     }
-
-    public void bar(Runnable printBar) throws InterruptedException {
-
-        for (int i = 0; i < n; i++) {
-
-            // printBar.run() outputs "bar". Do not change or remove this line.
-            bar.acquire();
-            printBar.run();
-            foo.release();
-        }
-    }
 }
+

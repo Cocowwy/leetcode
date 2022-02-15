@@ -1,5 +1,7 @@
 package dfs;
 
+import javax.swing.tree.TreeNode;
+
 /**
  * 二叉树的最小深度
  * https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/
@@ -27,24 +29,26 @@ class T111 {
 
         return Math.min(minDepth(root.left),minDepth(root.right))+1;
     }
-}
 
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
 
-    TreeNode() {
+    class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
     }
 
-    TreeNode(int val) {
-        this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
 }
