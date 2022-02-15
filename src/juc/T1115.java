@@ -6,7 +6,8 @@ import java.util.concurrent.Semaphore;
  * 交替打印 FooBar
  * https://leetcode-cn.com/problems/print-foobar-alternately/
  *
- * 思路 1：用两个信号量，打印完通知另外一个线程的信号量
+ * 思路 1：
+ * 用两个信号量，打印完通知另外一个线程的信号量
  *
  *
  * @author cocowwy.cn
