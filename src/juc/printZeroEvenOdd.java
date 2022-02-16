@@ -14,7 +14,7 @@ import java.util.function.IntConsumer;
  * @author cocowwy.cn
  * @create 2022-02-02-14:58
  */
-public class T1116 {
+public class printZeroEvenOdd {
     class ZeroEvenOdd {
         private int n;
         // 打印0
@@ -59,3 +59,4 @@ public class T1116 {
         }
     }
 }
+

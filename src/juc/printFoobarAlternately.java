@@ -3,7 +3,7 @@ package juc;
 import java.util.concurrent.Semaphore;
 
 /**
- * 交替打印 FooBar
+ * T1115：交替打印 FooBar
  * https://leetcode-cn.com/problems/print-foobar-alternately/
  *
  * 思路 1：
@@ -13,7 +13,7 @@ import java.util.concurrent.Semaphore;
  * @author cocowwy.cn
  * @create 2022-02-02-10:20
  */
-public class T1115 {
+public class printFoobarAlternately {
     class FooBar {
         private int n;
         private Semaphore foo = new Semaphore(1);

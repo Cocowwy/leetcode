@@ -1,7 +1,7 @@
 package dfs;
 
 /**
- * 二叉树的最小深度
+ * T111：二叉树的最小深度
  * https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/
  *
  * 思路：
@@ -12,7 +12,7 @@ package dfs;
  * @create 2022-02-02-15:27
  */
 // 回溯向上累加
-class T111 {
+public class minimumDepthOfBinaryTree {
     public int minDepth(TreeNode root) {
         // 递归
         if (root == null) return 0;
