@@ -1,10 +1,5 @@
 package dfs.tree;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * T98.验证二叉搜索树
  *
@@ -66,15 +61,5 @@ public class validateBinarySearchTree {
             this.left = left;
             this.right = right;
         }
-    }
-}
-
-class A {
-
-    public static void main(String[] args) {
-        List<Integer> a = Arrays.asList(null, 1, 1);
-        List<Integer> b = Arrays.asList(1, 1, null);
-        System.out.println(a);
-        System.out.println(b);
     }
 }
