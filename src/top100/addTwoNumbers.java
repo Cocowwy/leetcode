@@ -3,6 +3,8 @@ package top100;
 
 /**
  *  T2 两数相加
+ *  https://leetcode-cn.com/problems/add-two-numbers/
+ *
  *  思路1：
  *  遍历两个链表，转成字符串后再转Integer
  *  之后得到结果后转成链表
