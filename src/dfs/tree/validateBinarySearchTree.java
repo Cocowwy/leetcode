@@ -2,6 +2,7 @@ package dfs.tree;
 
 /**
  * T98.验证二叉搜索树
+ * https://leetcode-cn.com/problems/validate-binary-search-tree/
  *
  * 思路：
  * 左<根<右

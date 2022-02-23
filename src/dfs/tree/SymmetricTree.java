@@ -2,6 +2,7 @@ package dfs.tree;
 
 /**
  * T101 对称二叉树
+ * https://leetcode-cn.com/problems/symmetric-tree/
  *
  * 思路：
  * 递归 当前左树的左 和 当前右树的右比  当前左树的右 和 当前右树的左比

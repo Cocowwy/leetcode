@@ -2,6 +2,7 @@ package dfs.tree;
 
 /**
  * T100 相同的树
+ * https://leetcode-cn.com/problems/same-tree/
  *
  * 思路：
  * dfs  入参是当前的两颗树
