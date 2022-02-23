@@ -60,7 +60,6 @@ public class longestSubstringWithoutRepeatingCharacters {
                 }
                 max = Math.max(set.size(), max);
             }
-
             return max;
         }
     }
