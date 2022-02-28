@@ -13,7 +13,7 @@ package dfs.tree;
  * @author cocowwy.cn
  * @create 2022-02-02-17:18
  */
-public class validateBinarySearchTree {
+public class ValidateBinarySearchTree {
 
     class Solution {
         Long pre = Long.MIN_VALUE;

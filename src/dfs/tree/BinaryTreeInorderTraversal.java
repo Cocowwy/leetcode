@@ -14,7 +14,7 @@ import java.util.List;
  * @author cocowwy.cn
  * @create 2022-02-02-18:44
  */
-public class binaryTreeInorderTraversal {
+public class BinaryTreeInorderTraversal {
 
     class Solution {
 

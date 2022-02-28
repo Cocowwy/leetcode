@@ -25,7 +25,7 @@ package top100;
  * @author cocowwy.cn
  * @create 2022-02-02-14:16
  */
-public class addTwoNumbers {
+public class AddTwoNumbers {
 
     class Solution1 {
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {

@@ -13,7 +13,7 @@ import java.util.List;
  * @author cocowwy.cn
  * @create 2022-02-02-14:58
  */
-public class binaryTreePreorderTraversal {
+public class BinaryTreePreorderTraversal {
     class Solution {
         private final List<Integer> rs = new ArrayList();
 

@@ -16,7 +16,7 @@ import java.util.List;
  * @author cocowwy.cn
  * @create 2022-02-02-16:24
  */
-public class binaryTreePaths {
+public class BinaryTreePaths {
 
     class Solution {
         private static final String TO = "->";

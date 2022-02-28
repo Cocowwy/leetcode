@@ -15,7 +15,7 @@ import java.util.function.IntConsumer;
  * @author cocowwy.cn
  * @create 2022-02-02-14:58
  */
-public class printZeroEvenOdd {
+public class PrintZeroEvenOdd {
     class ZeroEvenOdd {
         private int n;
         // 打印0

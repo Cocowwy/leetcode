@@ -14,7 +14,7 @@ package dfs.tree;
  * @create 2022-02-02-15:27
  */
 // 回溯向上累加
-public class minimumDepthOfBinaryTree {
+public class MinimumDepthOfBinaryTree {
     public int minDepth(TreeNode root) {
         // 递归
         if (root == null) return 0;

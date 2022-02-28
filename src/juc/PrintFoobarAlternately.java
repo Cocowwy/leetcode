@@ -13,7 +13,7 @@ import java.util.concurrent.Semaphore;
  * @author cocowwy.cn
  * @create 2022-02-02-10:20
  */
-public class printFoobarAlternately {
+public class PrintFoobarAlternately {
     class FooBar {
         private int n;
         private Semaphore foo = new Semaphore(1);

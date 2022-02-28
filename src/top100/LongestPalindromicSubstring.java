@@ -16,7 +16,7 @@ import java.util.List;
  * @author cocowwy.cn
  * @create 2022-02-02-15:24
  */
-public class longestPalindromicSubstring {
+public class LongestPalindromicSubstring {
     class Solution1 {
         public String longestPalindrome(String s) {
             List<String> strs = new ArrayList<>();

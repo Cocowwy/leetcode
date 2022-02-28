@@ -14,7 +14,7 @@ import java.util.List;
  * @author cocowwy.cn
  * @create 2022-02-02-16:16
  */
-public class binaryTreePostorderTraversal {
+public class BinaryTreePostorderTraversal {
 
     class Solution {
         List<Integer> rts = new ArrayList();

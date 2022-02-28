@@ -16,7 +16,7 @@ import java.util.Set;
  * @author cocowwy.cn
  * @create 2022-02-02-10:44
  */
-public class longestSubstringWithoutRepeatingCharacters {
+public class LongestSubstringWithoutRepeatingCharacters {
     static class Solution1 {
         public static void main(String[] args) {
             System.out.println(lengthOfLongestSubstring("au"));
