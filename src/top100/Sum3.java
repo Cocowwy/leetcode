@@ -72,6 +72,7 @@ public class Sum3 {
                         // middle 和 right  找到下一个不同的
                         while (indexMiddle < indexRight && nums[indexMiddle] == nums[indexMiddle + 1]) indexMiddle++;
                         while (indexMiddle < indexRight && nums[indexRight] == nums[indexRight - 1]) indexRight--;
+                        // 上面只找到了最后一个，此时还应该往后调整一个
                         indexMiddle++;
                         indexRight--;
                         continue;
