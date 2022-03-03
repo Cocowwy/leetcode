@@ -65,17 +65,23 @@ public class MaximumSubarray {
     /**
      * dp[i] = dp[i-1] + nums[i]
      */
-    class Solution3 {
-        public int maxSubArray(int[] nums) {
+    static class Solution3 {
+        public static int maxSubArray(int[] nums) {
             int max = nums[0];
             int pre = 0;
 
             for (int item : nums) {
+                // 当前每个点的最大值
                 pre = Math.max(item, pre + item);
+                // 记录最大值
                 max = Math.max(max, pre);
             }
 
             return max;
+        }
+
+        public static void main(String[] args) {
+            maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4});
         }
     }
 }
