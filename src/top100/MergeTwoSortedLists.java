@@ -1,13 +1,18 @@
 package top100;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * T21 合并两个有序链表
  * https://leetcode-cn.com/problems/merge-two-sorted-lists/
  *
- * 思路：
- * 以头结点最小的链表开始遍历
- * 另外一个指针指向另外一个链表
- * 遍历主链表的时候同时看另外一个链表
+ * 思路1：
+ * 递归链表
+ *
+ *
+ * 思路2：
+ * 遍历两个链表，合并后排序 再创建一个新的链表
  *
  * @author cocowwy.cn
  * @create 2022-03-03-14:53
@@ -30,35 +35,55 @@ public class MergeTwoSortedLists {
         }
     }
 
-
-    class Solution {
+    class Solution1 {
         public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-            ListNode head = new ListNode();
-            ListNode master = new ListNode();
-            ListNode slave = new ListNode();
-            head = master;
+            // 终止条件
+            if (list1 == null) {
+                return list2;
+            }
+
+            if (list2 == null) {
+                return list1;
+            }
 
             if (list1.val < list2.val) {
-                master = list1;
-                slave = list2;
+                list1 = mergeTwoLists(list1.next, list2);
+                return list1;
             } else {
-                master = list2;
-                slave = list1;
+                list2 = mergeTwoLists(list1, list2.next);
+                return list2;
             }
-
-            while (master != null && slave != null) {
-                int nextVal = master.next == null ? Integer.MAX_VALUE : master.next.val;
-                if (master.val < slave.val && slave.val < nextVal) {
-                    ListNode listNode = new ListNode();
-                    listNode.val = slave.val;
-                    listNode.next = master.next;
-                    master.next = listNode;
-                }
-            }
-
-
-            return head;
         }
+    }
+
+
+    class Solution2 {
+        public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+            ListNode head = new ListNode();
+            ListNode rt = new ListNode();
+            head = rt;
+
+            List<Integer> lists = new ArrayList<>();
+            while (list1 != null) {
+                lists.add(list1.val);
+                list1 = list1.next;
+            }
+            while (list2 != null) {
+                lists.add(list2.val);
+                list2 = list2.next;
+            }
+            lists.sort(Integer::compareTo);
+
+            for (Integer i : lists) {
+                rt.next = new ListNode(i);
+                rt = rt.next;
+            }
+
+            return head.next;
+        }
+    }
+
+    public static void main(String[] args) {
     }
 
 }
