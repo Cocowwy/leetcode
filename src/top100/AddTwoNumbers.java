@@ -23,6 +23,7 @@ package top100;
  *
  *
  * @author cocowwy.cn
+ * @link <a href="https://leetcode.cn/problems/add-two-numbers/?favorite=2cktkvj"></a>
  * @create 2022-02-02-14:16
  */
 public class AddTwoNumbers {
@@ -104,6 +105,48 @@ public class AddTwoNumbers {
         ListNode(int val, ListNode next) {
             this.val = val;
             this.next = next;
+        }
+    }
+
+
+    class Solve2 {
+        public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+
+            ListNode result = new ListNode();
+            // 持有result，遍历result的时候不丢失
+            ListNode holdResult = result;
+
+            boolean add1 = false;
+            while (true) {
+                // add1 这里需要考虑最后位数相同，但是最后会进位的情况
+                if (l1 == null && l2 == null && !add1) {
+                    break;
+                }
+
+                int l1Val = l1 == null ? 0 : l1.val;
+                int l2Val = l2 == null ? 0 : l2.val;
+                int sum = l1Val + l2Val;
+
+                // 保留进位信息
+                if (add1) {
+                    sum++;
+                    add1 = false;
+                }
+
+                if (sum >= 10) {
+                    sum = sum % 10;
+                    add1 = true;
+                }
+
+                // 设置值 并且顺延节点
+                result.next = new ListNode(sum);
+                result = result.next;
+
+                l1 = l1 != null ? l1.next : l1;
+                l2 = l2 != null ? l2.next : l2;
+            }
+
+            return holdResult.next;
         }
     }
 }
