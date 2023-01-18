@@ -1,5 +1,7 @@
 package top100;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +16,7 @@ import java.util.List;
  * 定义一个滑动窗口，从头滑动到尾部，窗口长度从2增长到length 再judge当前这段字符串是否是回文  虽然也是暴力 但是必思路1快 还是超时了,优化了一些细节后就没超时了 淦！
  *
  * @author cocowwy.cn
+ * @href <a href="https://leetcode-cn.com/problems/longest-palindromic-substring/"></a>
  * @create 2022-02-02-15:24
  */
 public class LongestPalindromicSubstring {
@@ -75,4 +78,45 @@ public class LongestPalindromicSubstring {
             return true;
         }
     }
+
+    /**
+     * 二刷 由窗口长度由长向短开始滑动
+     */
+    static class Solution3 {
+
+        public static void main(String[] args) {
+            longestPalindrome("ccc");
+        }
+
+        public static String longestPalindrome(String s) {
+            if (s.length() == 2 && s.charAt(1) == s.charAt(0)) {
+                return s;
+            }
+
+            // 定义滑动窗口
+            for (int i = s.length(); i >= 2; i--) {
+                // 从头开始滑动窗口
+                for (int j = 0; j + i <= s.length(); j++) {
+                    String substring = s.substring(j, j + i);
+                    if (judgePalindromic(substring)) return substring;
+                }
+            }
+            return String.valueOf(s.charAt(0));
+        }
+
+        /**
+         * 判断子串是否回文
+         * @param s
+         * @return
+         */
+        private static Boolean judgePalindromic(String s) {
+            for (int i = 0; i < s.length() / 2; i++) {
+                if (s.charAt(i) != s.charAt(s.length() - i - 1)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
 }
