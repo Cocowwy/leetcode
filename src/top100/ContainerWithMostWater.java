@@ -46,12 +46,12 @@ public class ContainerWithMostWater {
             int max = 0;
 
             int i = 0;
-            int j = height.length-1;
+            int j = height.length - 1;
             while (i < j) {
                 max = Math.max(max, Math.min(height[i], height[j]) * (j - i));
-                if(height[i] < height[j]){
+                if (height[i] < height[j]) {
                     i++;
-                }else {
+                } else {
                     j--;
                 }
 
@@ -64,4 +64,30 @@ public class ContainerWithMostWater {
             System.out.println(s.maxArea(new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7}));
         }
     }
+
+    /**
+     * 二刷
+     */
+    static class Solution3 {
+
+        public int maxArea(int[] height) {
+            int max = 0;
+            for (int i = 0; i < height.length; i++) {
+                int j = height.length - 1;
+                while (j > i) {
+                    max = Math.max(max, obtainHeight(i, j, height));
+                    if (height[i] <= height[j]) {
+                        break;
+                    }
+                    j--;
+                }
+            }
+            return max;
+        }
+
+        private int obtainHeight(int leftIndex, int rightIndex, int[] height) {
+            return Math.min(height[leftIndex], height[rightIndex]) * (rightIndex - leftIndex);
+        }
+    }
+
 }
