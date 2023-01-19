@@ -18,6 +18,7 @@ import java.util.List;
  * 2.先排序，当左指针 > 0 的时候  后面就不需要遍历了，因为后面是不存在 c = -a-b的了
  *
  * @author Cocowwy
+ * @href <a href=https://leetcode.cn/problems/3sum/?favorite=2cktkvj></a>
  * @create 2022-02-02-13:49
  */
 public class Sum3 {
@@ -98,6 +99,63 @@ public class Sum3 {
                     }
                 }
             }
+        }
+    }
+
+    /**
+     * 二刷
+     */
+    static class Solution3 {
+
+        public static void main(String[] args) {
+            System.out.println(threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
+//            System.out.println(threeSum(new int[]{0, 0, 0, 0}));
+        }
+
+        public static List<List<Integer>> threeSum(int[] nums) {
+            List<List<Integer>> res = new ArrayList<>();
+
+            // 排序，便于去重
+            Arrays.sort(nums);
+
+            // 从三数中摘除其中一个，使其余两个加起来等于它
+            // 终止条件 左指针大于等于0
+            for (int i = 0; nums[i] <= 0 && i < nums.length - 2; i++) {
+
+                // 头指针重复顺移***  这样需要和i-1对比，因为如果直接对比i+1 那么会直接指针后移，导致缺解
+                if (i >= 1 && nums[i - 1] == nums[i]) {
+                    continue;
+                }
+
+                // 从这个数后面开始遍历，双指针从头和尾开始遍历
+                int sum2 = -nums[i];
+
+                int left = i + 1;
+                int right = nums.length - 1;
+
+                // 后两指针
+                while (left < right) {
+                    // 得到解。如果偏小，移动左指针，偏大，移动右指针
+                    if (nums[left] + nums[right] == sum2) {
+                        res.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                        int rightTemp = nums[right--];
+                        int leftTemp = nums[left++];
+                        while (nums[right] == rightTemp && left < right) {
+                            right--;
+                        }
+                        while (nums[left] == leftTemp && left < right) {
+                            left++;
+                        }
+                        continue;
+                    }
+                    if (nums[left] + nums[right] - sum2 > 0) {
+                        right--;
+                    } else {
+                        left++;
+                    }
+                }
+            }
+            return res;
         }
     }
 }
