@@ -15,8 +15,15 @@ public class ListNode {
         this.val = val;
     }
 
-    ListNode(int val, ListNode next) {
+    public ListNode(int val, ListNode next) {
         this.val = val;
         this.next = next;
+    }
+
+    public static void print(ListNode node) {
+        while (node.next != null) {
+            System.out.print(node.val + "--->");
+            node = node.next;
+        }
     }
 }
