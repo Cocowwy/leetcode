@@ -1,5 +1,7 @@
 package top100;
 
+import common.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,22 +20,6 @@ import java.util.List;
  * @create 2022-03-03-14:53
  */
 public class MergeTwoSortedLists {
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 
     class Solution1 {
         public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
@@ -47,10 +33,10 @@ public class MergeTwoSortedLists {
             }
 
             if (list1.val < list2.val) {
-                list1 = mergeTwoLists(list1.next, list2);
+                list1.next = mergeTwoLists(list1.next, list2);
                 return list1;
             } else {
-                list2 = mergeTwoLists(list1, list2.next);
+                list2.next = mergeTwoLists(list1, list2.next);
                 return list2;
             }
         }
@@ -115,4 +101,36 @@ public class MergeTwoSortedLists {
         }
     }
 
+    /**
+     * 二刷 递归方式
+     *
+     * l1 = [1,2,4],
+     * l2 = [1,3,4]
+     */
+    static class Solution4 {
+
+        public static void main(String[] args) {
+            ListNode a = new ListNode(1, new ListNode(2, new ListNode(3)));
+            ListNode b = new ListNode(1, new ListNode(2, null));
+            ListNode.print(mergeTwoLists(a, b));
+        }
+
+        public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+            if (list1 == null) {
+                return list2;
+            }
+
+            if (list2 == null) {
+                return list1;
+            }
+
+            if (list1.val < list2.val) {
+                list1.next = mergeTwoLists(list1.next, list2);
+                return list1;
+            } else {
+                list2.next = mergeTwoLists(list1, list2.next);
+                return list2;
+            }
+        }
+    }
 }
