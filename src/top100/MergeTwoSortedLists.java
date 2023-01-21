@@ -86,4 +86,33 @@ public class MergeTwoSortedLists {
     public static void main(String[] args) {
     }
 
+    /**
+     * 二刷
+     */
+    class Solution3 {
+        public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+            List<Integer> lists = new ArrayList<>();
+            while (list1 != null) {
+                lists.add(list1.val);
+                list1 = list1.next;
+            }
+
+            while (list2 != null) {
+                lists.add(list2.val);
+                list2 = list2.next;
+            }
+            lists.sort(Integer::compare);
+
+            ListNode res = new ListNode();
+            ListNode hold = res;
+
+            for (Integer val : lists) {
+                res.next = new ListNode(val);
+                res = res.next;
+            }
+
+            return hold.next;
+        }
+    }
+
 }
