@@ -15,6 +15,7 @@ import java.util.List;
  * 剪枝 左边的括号一定得大于右边括号的数量 ())) 这里left=5 right=3 说明left>right的时候剪枝
  *
  * @author cocowwy.cn
+ * @hrwf <a href="https://leetcode-cn.com/problems/generate-parentheses/"></a>
  * @create 2022-03-03-9:49
  */
 public class GenerateParentheses {
@@ -43,6 +44,45 @@ public class GenerateParentheses {
             if (right > 0) {
                 dfs(rts, str + ")", left, right - 1);
             }
+        }
+    }
+
+    /**
+     * 二刷
+     * 构建二叉树+剪枝
+     */
+    class Solution2 {
+        public List<String> generateParenthesis(int n) {
+            List<String> result = new ArrayList<>();
+
+            dfs(result, "", n, n);
+
+            return result;
+        }
+
+        /**
+         * 记录当前left和right括号的数量
+         */
+        public void dfs(List<String> result, String str, int left, int right)  {
+            // 剩余的左括号大于右括号则减枝
+            if (right < left) {
+                return;
+            }
+
+            // 终止条件
+            if (left == 0 && right == 0) {
+                result.add(str);
+                return;
+            }
+
+            // 如果左括号用完嘞 右括号还没用完则dfs右括号
+            if (left == 0 && right != 0) {
+                dfs(result, str + ")", left, right - 1);
+                return;
+            }
+
+            dfs(result, str + "(", left - 1, right);
+            dfs(result, str + ")", left, right - 1);
         }
     }
 }
