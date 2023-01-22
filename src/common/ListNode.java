@@ -8,10 +8,10 @@ public class ListNode {
     public int val;
     public ListNode next;
 
-    ListNode() {
+    public ListNode() {
     }
 
-    ListNode(int val) {
+    public ListNode(int val) {
         this.val = val;
     }
 
@@ -21,9 +21,10 @@ public class ListNode {
     }
 
     public static void print(ListNode node) {
-        while (node.next != null) {
+        while (node != null) {
             System.out.print(node.val + "--->");
             node = node.next;
         }
+        System.out.println("");
     }
 }
