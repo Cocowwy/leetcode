@@ -18,7 +18,7 @@ public class BinarySearch {
         System.out.println((binarySearchUnRecursion(nums, 8) == 5));
         System.out.println((binarySearchUnRecursion(nums, 10) == -1));
         System.out.println((binarySearchUnRecursion(nums, 0) == -1));
-        System.out.println("\n");
+        System.out.println("\n\n");
         // 递归
         System.out.println((binarySearchRecursion(nums, 1, 0, nums.length - 1) == 0));
         System.out.println((binarySearchRecursion(nums, 2, 0, nums.length - 1) == 1));
